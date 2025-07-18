@@ -1,0 +1,63 @@
+/* point-theme.css */
+
+/* Define your custom properties for the "point" theme */
+/* :host([theme~="point"]), html ensures these properties are applied when "point" theme is active */
+/* html selector is good for global properties */
+html, :host([theme~="point"]) {
+  /* Primary colors */
+  --lumo-primary-color: #007bff; /* A typical blue for primary actions */
+  --lumo-primary-text-color: white; /* Text color on primary background */
+  --lumo-primary-color-50pct: rgba(0, 123, 255, 0.5); /* For hover/active states */
+
+  /* Text colors */
+  --lumo-text-color: #212529; /* Dark grey for general text */
+  --lumo-secondary-text-color: #6c757d; /* Lighter grey for secondary text */
+  --lumo-tertiary-text-color: #999; /* Even lighter */
+
+  /* Background colors */
+  --lumo-base-color: #ffffff; /* White background for most components */
+  --lumo-shade-5pct: rgba(0, 0, 0, 0.05); /* Light shade for subtle backgrounds */
+  --lumo-header-background-color: #e9ecef; /* A light grey for headers */
+  --lumo-contrast-5pct: rgba(0, 0, 0, 0.05); /* Subtle contrast */
+  --lumo-border-radius-m: 4px; /* Standard border radius */
+
+  /* Typography variables (you can customize these directly) */
+  --lumo-font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  --lumo-font-size-m: 1rem;
+  --lumo-font-size-l: 1.125rem;
+  --lumo-font-size-xl: 1.25rem;
+  --lumo-font-size-xxxl: 2.5rem; /* For H1 */
+
+  /* You can define your own custom variables if Lumo doesn't have one */
+  --point-custom-header-height: 60px;
+}
+
+/* Example: Customizing tabs specifically */
+/* Make sure these target the actual web component tag name */
+vaadin-tabs[theme~="point"] {
+  background-color: var(--lumo-header-background-color); /* Use a Lumo variable or your custom one */
+  border-bottom: 2px solid var(--lumo-primary-color);
+  box-shadow: var(--lumo-shade-5pct) 0 2px 4px 0; /* Add a subtle shadow */
+}
+
+vaadin-tab[theme~="point"] {
+  color: var(--lumo-secondary-text-color);
+  padding: var(--lumo-space-m) var(--lumo-space-l);
+  font-size: var(--lumo-font-size-m);
+}
+
+vaadin-tab[theme~="point"][selected] {
+  color: var(--lumo-primary-color);
+  font-weight: bold;
+  background-color: var(--lumo-base-color); /* White background for selected tab */
+}
+
+/* Style for the main header (H1) */
+.main-header {
+    color: var(--lumo-primary-color);
+    font-size: var(--lumo-font-size-xxxl);
+    margin: var(--lumo-space-m);
+    /* Ensure the text is on the right */
+    text-align: right; /* Added for extra safety, though justify-content-end on HorizontalLayout should handle it */
+    padding-right: var(--lumo-space-l); /* Add some padding on the right */
+}
